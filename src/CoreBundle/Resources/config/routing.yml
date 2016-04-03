@@ -1,3 +1,8 @@
+core_contact:
+        resource: "@CoreBundle/Resources/config/routing/contact.yml"
+        prefix:   /contact
+
+
 core_homepage:
     path:     /
     defaults: { _controller: CoreBundle:Default:index }

@@ -4,6 +4,10 @@
 .container-fluid{
     padding-left: 200px;
 }
+
+.container{
+    padding-left: 20px;
+}
 /*=================================================================================
     Sidebar
 ====================================================================================*/
@@ -13,7 +17,8 @@
 #sideNav{
     width: 200px;
     height:100vh;
-    position: absolute;
+    position: fixed;
+
 }
 
 nav ul li{

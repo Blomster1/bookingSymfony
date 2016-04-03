@@ -1,0 +1,35 @@
+CoreBundle\Entity\Contact:
+    type: entity
+    table: null
+    repositoryClass: CoreBundle\Repository\ContactRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        email:
+            type: string
+            length: 255
+        tel:
+            type: integer
+            nullable: true
+        role:
+            type: string
+            length: 255
+            nullable: true
+        adresse:
+            type: string
+            length: 255
+            nullable: true
+        longitude:
+            type: float
+            nullable: true
+        latitude:
+            type: float
+            nullable: true
+        lastMaJ:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks: {  }

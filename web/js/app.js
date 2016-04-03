@@ -18,3 +18,10 @@
 
     }); // end of document ready
 })(jQuery); // end of jQuery name space
+
+function getFormContact(){
+    $.post("/contact/new",function(data){
+        $('.modal-content').html(data);
+        $('#modal1').openModal();
+    });
+}
