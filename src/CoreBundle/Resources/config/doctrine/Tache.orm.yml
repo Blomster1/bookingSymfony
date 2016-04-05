@@ -1,0 +1,22 @@
+CoreBundle\Entity\Tache:
+    type: entity
+    table: null
+    repositoryClass: CoreBundle\Repository\TacheRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        intitule:
+            type: string
+            length: 255
+        fait:
+            type: boolean
+        date:
+            type: date
+        tag:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
