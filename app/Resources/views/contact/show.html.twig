@@ -1,7 +1,15 @@
-{% extends 'base.html.twig' %}
+    
+<div class="header-profile">
+    <div class="banner-profil">
+        <img class="banner-background" src="../{{ asset('images/user-profile-bg.jpg') }}" alt="">
+        <div class="col s2">
+            <img src="{{ asset('images/yuna.jpg') }}" alt="" class="circle responsive-img profil-picture"> <!-- notice the "circle" class -->
+        </div>
+    </div>
+</div>
 
-{% block content %}
-    <h1>Contact</h1>
+
+<h1>Contact</h1>
 
     <table>
         <tbody>
@@ -53,4 +61,3 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
-{% endblock %}

@@ -105,65 +105,73 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/contact')) {
-            // contact_index
-            if (rtrim($pathinfo, '/') === '/contact') {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_contact_index;
-                }
-
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'contact_index');
-                }
-
-                return array (  '_controller' => 'CoreBundle\\Controller\\ContactController::indexAction',  '_route' => 'contact_index',);
+        if (0 === strpos($pathinfo, '/c')) {
+            // calendar_homepage
+            if ($pathinfo === '/calendar') {
+                return array (  '_controller' => 'CalendarBundle\\Controller\\DefaultController::indexAction',  '_route' => 'calendar_homepage',);
             }
-            not_contact_index:
 
-            // contact_show
-            if (preg_match('#^/contact/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_contact_show;
+            if (0 === strpos($pathinfo, '/contact')) {
+                // contact_index
+                if (rtrim($pathinfo, '/') === '/contact') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_contact_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'contact_index');
+                    }
+
+                    return array (  '_controller' => 'CoreBundle\\Controller\\ContactController::indexAction',  '_route' => 'contact_index',);
                 }
+                not_contact_index:
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'contact_show')), array (  '_controller' => 'CoreBundle\\Controller\\ContactController::showAction',));
-            }
-            not_contact_show:
+                // contact_show
+                if (preg_match('#^/contact/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_contact_show;
+                    }
 
-            // contact_new
-            if ($pathinfo === '/contact/new') {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_contact_new;
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'contact_show')), array (  '_controller' => 'CoreBundle\\Controller\\ContactController::showAction',));
                 }
+                not_contact_show:
 
-                return array (  '_controller' => 'CoreBundle\\Controller\\ContactController::newAction',  '_route' => 'contact_new',);
-            }
-            not_contact_new:
+                // contact_new
+                if ($pathinfo === '/contact/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_contact_new;
+                    }
 
-            // contact_edit
-            if (preg_match('#^/contact/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_contact_edit;
+                    return array (  '_controller' => 'CoreBundle\\Controller\\ContactController::newAction',  '_route' => 'contact_new',);
                 }
+                not_contact_new:
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'contact_edit')), array (  '_controller' => 'CoreBundle\\Controller\\ContactController::editAction',));
-            }
-            not_contact_edit:
+                // contact_edit
+                if (preg_match('#^/contact/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_contact_edit;
+                    }
 
-            // contact_delete
-            if (preg_match('#^/contact/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if ($this->context->getMethod() != 'DELETE') {
-                    $allow[] = 'DELETE';
-                    goto not_contact_delete;
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'contact_edit')), array (  '_controller' => 'CoreBundle\\Controller\\ContactController::editAction',));
                 }
+                not_contact_edit:
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'contact_delete')), array (  '_controller' => 'CoreBundle\\Controller\\ContactController::deleteAction',));
+                // contact_delete
+                if (preg_match('#^/contact/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_contact_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'contact_delete')), array (  '_controller' => 'CoreBundle\\Controller\\ContactController::deleteAction',));
+                }
+                not_contact_delete:
+
             }
-            not_contact_delete:
 
         }
 

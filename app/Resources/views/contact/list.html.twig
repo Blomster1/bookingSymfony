@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <a class="btn-floating btn-large waves-effect waves-light red modal-trigger add" onclick="getFormContact()" href="#modal1"><i class="material-icons">add</i></a>
+    <nav class="red lighten-1 horizontal-nav">
+        <div class="nav-wrapper">
+            <a href="#!">Contacts</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+                <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+                <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+                <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col m4 no-padding">
+                {% for contact in contacts %}
+                    <div class="col s12 m12 no-margin no-padding">
+                        <div class="card-panel grey lighten-5 z-depth-1 no-margin">
+                            <div class="row valign-wrapper">
+                                <div class="col s2">
+                                    <img src="../images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                                </div>
+                                <div class="col s9">
+                                    <strong>{{ contact.email }}</strong>
+                                    <small>{{ contact.role }}</small>
+                                </div>
+                                <div class="col s1">
+                                    <a onclick="getInfoContact({{ contact.id }})"><i class="material-icons">remove_red_eye</i></a>
+                                    <a href="{{ path('contact_edit', { 'id': contact.id }) }}"><i class="material-icons">mode_edit</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+            </div>
+        </div>
+        <div class="col m8 no-padding no-margin" id="contact-view">
+        </div>
+    </div>
+
+{% endblock %}
+
+

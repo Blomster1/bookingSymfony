@@ -7,93 +7,92 @@ class __TwigTemplate_97a75852a844460e93441731738a9bf73ebbdedab05cd69c6b4842bcb88
     {
         parent::__construct($env);
 
-        // line 1
-        $this->parent = $this->loadTemplate("base.html.twig", "contact/show.html.twig", 1);
-        $this->blocks = array(
-            'content' => array($this, 'block_content'),
-        );
-    }
+        $this->parent = false;
 
-    protected function doGetParent(array $context)
-    {
-        return "base.html.twig";
+        $this->blocks = array(
+        );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_06dd229a523ee79df8b18c0b7f2cd31a0a23232abc65681c077cd300c295e646 = $this->env->getExtension("native_profiler");
-        $__internal_06dd229a523ee79df8b18c0b7f2cd31a0a23232abc65681c077cd300c295e646->enter($__internal_06dd229a523ee79df8b18c0b7f2cd31a0a23232abc65681c077cd300c295e646_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "contact/show.html.twig"));
+        $__internal_5dd5e32322eb391a16f0f41ed5417d4d5f67e02753c3144320439a2197bd0cc9 = $this->env->getExtension("native_profiler");
+        $__internal_5dd5e32322eb391a16f0f41ed5417d4d5f67e02753c3144320439a2197bd0cc9->enter($__internal_5dd5e32322eb391a16f0f41ed5417d4d5f67e02753c3144320439a2197bd0cc9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "contact/show.html.twig"));
 
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-        
-        $__internal_06dd229a523ee79df8b18c0b7f2cd31a0a23232abc65681c077cd300c295e646->leave($__internal_06dd229a523ee79df8b18c0b7f2cd31a0a23232abc65681c077cd300c295e646_prof);
-
-    }
-
-    // line 3
-    public function block_content($context, array $blocks = array())
-    {
-        $__internal_4aa15955eb6c9e4e0451e4bd4e680978fd280c196fef107e329efbc5d64054fb = $this->env->getExtension("native_profiler");
-        $__internal_4aa15955eb6c9e4e0451e4bd4e680978fd280c196fef107e329efbc5d64054fb->enter($__internal_4aa15955eb6c9e4e0451e4bd4e680978fd280c196fef107e329efbc5d64054fb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
-
+        // line 1
+        echo "    
+<div class=\"header-profile\">
+    <div class=\"banner-profil\">
+        <img class=\"banner-background\" src=\"../";
         // line 4
-        echo "    <h1>Contact</h1>
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("images/user-profile-bg.jpg"), "html", null, true);
+        echo "\" alt=\"\">
+        <div class=\"col s2\">
+            <img src=\"";
+        // line 6
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("images/yuna.jpg"), "html", null, true);
+        echo "\" alt=\"\" class=\"circle responsive-img profil-picture\"> <!-- notice the \"circle\" class -->
+        </div>
+    </div>
+</div>
+
+
+<h1>Contact</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>";
-        // line 10
+        // line 18
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "id", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Email</th>
                 <td>";
-        // line 14
+        // line 22
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "email", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Tel</th>
                 <td>";
-        // line 18
+        // line 26
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "tel", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Role</th>
                 <td>";
-        // line 22
+        // line 30
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "role", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Adresse</th>
                 <td>";
-        // line 26
+        // line 34
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "adresse", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Longitude</th>
                 <td>";
-        // line 30
+        // line 38
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "longitude", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Latitude</th>
                 <td>";
-        // line 34
+        // line 42
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "latitude", array()), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Lastmaj</th>
                 <td>";
-        // line 38
+        // line 46
         if ($this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "lastMaJ", array())) {
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "lastMaJ", array()), "Y-m-d H:i:s"), "html", null, true);
         }
@@ -105,31 +104,31 @@ class __TwigTemplate_97a75852a844460e93441731738a9bf73ebbdedab05cd69c6b4842bcb88
     <ul>
         <li>
             <a href=\"";
-        // line 45
+        // line 53
         echo $this->env->getExtension('routing')->getPath("contact_index");
         echo "\">Back to the list</a>
         </li>
         <li>
             <a href=\"";
-        // line 48
+        // line 56
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("contact_edit", array("id" => $this->getAttribute((isset($context["contact"]) ? $context["contact"] : $this->getContext($context, "contact")), "id", array()))), "html", null, true);
         echo "\">Edit</a>
         </li>
         <li>
             ";
-        // line 51
+        // line 59
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form_start');
         echo "
                 <input type=\"submit\" value=\"Delete\">
             ";
-        // line 53
+        // line 61
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form_end');
         echo "
         </li>
     </ul>
 ";
         
-        $__internal_4aa15955eb6c9e4e0451e4bd4e680978fd280c196fef107e329efbc5d64054fb->leave($__internal_4aa15955eb6c9e4e0451e4bd4e680978fd280c196fef107e329efbc5d64054fb_prof);
+        $__internal_5dd5e32322eb391a16f0f41ed5417d4d5f67e02753c3144320439a2197bd0cc9->leave($__internal_5dd5e32322eb391a16f0f41ed5417d4d5f67e02753c3144320439a2197bd0cc9_prof);
 
     }
 
@@ -145,13 +144,21 @@ class __TwigTemplate_97a75852a844460e93441731738a9bf73ebbdedab05cd69c6b4842bcb88
 
     public function getDebugInfo()
     {
-        return array (  126 => 53,  121 => 51,  115 => 48,  109 => 45,  97 => 38,  90 => 34,  83 => 30,  76 => 26,  69 => 22,  62 => 18,  55 => 14,  48 => 10,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  125 => 61,  120 => 59,  114 => 56,  108 => 53,  96 => 46,  89 => 42,  82 => 38,  75 => 34,  68 => 30,  61 => 26,  54 => 22,  47 => 18,  32 => 6,  27 => 4,  22 => 1,);
     }
 }
-/* {% extends 'base.html.twig' %}*/
+/*     */
+/* <div class="header-profile">*/
+/*     <div class="banner-profil">*/
+/*         <img class="banner-background" src="../{{ asset('images/user-profile-bg.jpg') }}" alt="">*/
+/*         <div class="col s2">*/
+/*             <img src="{{ asset('images/yuna.jpg') }}" alt="" class="circle responsive-img profil-picture"> <!-- notice the "circle" class -->*/
+/*         </div>*/
+/*     </div>*/
+/* </div>*/
 /* */
-/* {% block content %}*/
-/*     <h1>Contact</h1>*/
+/* */
+/* <h1>Contact</h1>*/
 /* */
 /*     <table>*/
 /*         <tbody>*/
@@ -203,5 +210,4 @@ class __TwigTemplate_97a75852a844460e93441731738a9bf73ebbdedab05cd69c6b4842bcb88
 /*             {{ form_end(delete_form) }}*/
 /*         </li>*/
 /*     </ul>*/
-/* {% endblock %}*/
 /* */

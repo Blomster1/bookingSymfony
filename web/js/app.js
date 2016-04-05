@@ -25,3 +25,12 @@ function getFormContact(){
         $('#modal1').openModal();
     });
 }
+
+function getInfoContact(id){
+    $.get(id+"/show",function(data){
+        $('#contact-view').html(data);
+    });
+}
+
+
+$(".button-collapse").sideNav();

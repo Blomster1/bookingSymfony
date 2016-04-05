@@ -4,19 +4,31 @@
 {% if error %}
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
+<div class="row">
+    <div id="form-login" class="col m2 offset-m5 z-depth-3 valign white">
+        <h1 class="center-align">Arters booking web app</h1>
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="input-field">
+                <i class="material-icons prefix">account_circle</i>
+                <input type="text" class="validate" id="username icon_prefix" name="_username" value="{{ last_username }}" required="required" />
+                <label for="username icon_prefix">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+            </div>
 
-    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+            <div class="input-field">
+                <i class="material-icons prefix">https</i>
+                <input type="password" id="password icon-prefix" name="_password" required="required" />
+                <label for="password icon-prefix">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+            </div>
 
-    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-    <input type="password" id="password" name="_password" required="required" />
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-</form>
+            <div class="center-align">
+                <input class="btn" type="submit" id="_submit" name="_submit" value="{{ 'Se connecter'|trans({}, 'FOSUserBundle') }}" />
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock fos_user_content %}

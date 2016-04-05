@@ -14,13 +14,18 @@
     <body>
         {% include "CoreBundle:Partials:sideNav.html.twig" %}
         <div class="container-fluid">
-            <div class="row">
+            <div class="row no-margin">
                 {% include "CoreBundle:Partials:searchBar.html.twig" %}
             </div>
         </div>
-        <div class="container">
-            {% block content %}
-            {% endblock %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col m10 offset-m2 no-margin no-padding">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+
         </div>
 
         {% block javascripts %}
@@ -28,6 +33,10 @@
             <!-- Compiled and minified JavaScript -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
             <script src="{{ asset('js/app.js') }}" ></script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBCMCi-BsZloG-raKi9YbuMbAicd84VfDE&callback=initMap">
+            </script>
+        {% endblock %}
+        {% block specificJavascript %}
         {% endblock %}
     </body>
 </html>

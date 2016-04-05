@@ -1,18 +1,20 @@
-<nav id="sideNav" class="grey lighten-5">
-    <div id="user-section" class=" light-blue">
-        <img class="circle responsive-img" id="image-user" src="{{ asset("images/user.jpg") }}" alt="">
-        <!-- Dropdown Trigger -->
-        <a class='dropdown-button' id="name-user" href='#' data-activates='dropdown1'>{{ user.username }}</a>
+<div class="row no-margin">
+    <nav id="sideNav" class="grey lighten-5 col m2">
+        <div id="user-section" class="light-blue">
+            <img class="circle responsive-img" id="image-user" src="{{ asset("images/user.jpg") }}" alt="">
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-button' id="name-user" href='#' data-activates='dropdown1'>{{ user.username }}</a>
 
-        <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="{{ path('fos_user_profile_show') }}">Parametres</a></li>
-            <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="{{ path('fos_user_profile_show') }}">Parametres</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+            </ul>
+        </div>
+        <ul>
+            <li><a href="">Tableau de bord</a></li>
+            <li><a href="">Calendrier</a></li>
+            <li><a href="{{ path('contact_index') }}">Contact</a></li>
         </ul>
-    </div>
-    <ul>
-        <li><a href="">Tableau de bord</a></li>
-        <li><a href="">Calendrier</a></li>
-        <li><a href="{{ path('contact_index') }}">Contact</a></li>
-    </ul>
-</nav>
+    </nav>
+</div>

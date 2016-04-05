@@ -10,42 +10,52 @@ class __TwigTemplate_3a9669d742c627cbfcf6d6e03f14d7fab6faa82773174663b33cad8198a
         $this->parent = false;
 
         $this->blocks = array(
+            'color' => array($this, 'block_color'),
             'fos_user_content' => array($this, 'block_fos_user_content'),
         );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_94cb4180ad74361e2e515fde3dba695ddf4a154648baf03c9f48757c697a0648 = $this->env->getExtension("native_profiler");
-        $__internal_94cb4180ad74361e2e515fde3dba695ddf4a154648baf03c9f48757c697a0648->enter($__internal_94cb4180ad74361e2e515fde3dba695ddf4a154648baf03c9f48757c697a0648_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle::layout.html.twig"));
+        $__internal_b96711057a0666258b9fe7db8492b6b114ba1b583fe83ca74546952d37f60939 = $this->env->getExtension("native_profiler");
+        $__internal_b96711057a0666258b9fe7db8492b6b114ba1b583fe83ca74546952d37f60939->enter($__internal_b96711057a0666258b9fe7db8492b6b114ba1b583fe83ca74546952d37f60939_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle::layout.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
 <html>
     <head>
         <meta charset=\"UTF-8\" />
+        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css\">
+        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">
+        <link rel=\"stylesheet\" href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("css/style.css"), "html", null, true);
+        echo "\">
     </head>
-    <body>
+    <body ";
+        // line 9
+        $this->displayBlock('color', $context, $blocks);
+        echo ">
         <div>
             ";
-        // line 8
+        // line 11
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 9
+            // line 12
             echo "                ";
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("layout.logged_in_as", array("%username%" => $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array())), "FOSUserBundle"), "html", null, true);
             echo " |
                 <a href=\"";
-            // line 10
+            // line 13
             echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
             echo "\">
                     ";
-            // line 11
+            // line 14
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("layout.logout", array(), "FOSUserBundle"), "html", null, true);
             echo "
                 </a>
             ";
         } else {
-            // line 14
+            // line 17
             echo "                <a href=\"";
             echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
             echo "\">";
@@ -53,25 +63,25 @@ class __TwigTemplate_3a9669d742c627cbfcf6d6e03f14d7fab6faa82773174663b33cad8198a
             echo "</a>
             ";
         }
-        // line 16
+        // line 19
         echo "        </div>
 
         ";
-        // line 18
+        // line 21
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashBag", array()), "all", array()));
         foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
-            // line 19
+            // line 22
             echo "            ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($context["messages"]);
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                // line 20
+                // line 23
                 echo "                <div class=\"";
                 echo twig_escape_filter($this->env, $context["type"], "html", null, true);
                 echo "\">
                     ";
-                // line 21
+                // line 24
                 echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($context["message"], array(), "FOSUserBundle"), "html", null, true);
                 echo "
                 </div>
@@ -80,38 +90,57 @@ class __TwigTemplate_3a9669d742c627cbfcf6d6e03f14d7fab6faa82773174663b33cad8198a
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 24
+            // line 27
             echo "        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['type'], $context['messages'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 25
-        echo "
-        <div>
+        // line 28
+        echo "        <div>
             ";
-        // line 27
-        $this->displayBlock('fos_user_content', $context, $blocks);
         // line 29
+        $this->displayBlock('fos_user_content', $context, $blocks);
+        // line 31
         echo "        </div>
+        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js\"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js\"></script>
+        <script src=\"";
+        // line 35
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("js/app.js"), "html", null, true);
+        echo "\" ></script>
+        <script async defer src=\"https://maps.googleapis.com/maps/api/js?key= AIzaSyBCMCi-BsZloG-raKi9YbuMbAicd84VfDE&callback=initMap\">
+        </script>
     </body>
 </html>
 ";
         
-        $__internal_94cb4180ad74361e2e515fde3dba695ddf4a154648baf03c9f48757c697a0648->leave($__internal_94cb4180ad74361e2e515fde3dba695ddf4a154648baf03c9f48757c697a0648_prof);
+        $__internal_b96711057a0666258b9fe7db8492b6b114ba1b583fe83ca74546952d37f60939->leave($__internal_b96711057a0666258b9fe7db8492b6b114ba1b583fe83ca74546952d37f60939_prof);
 
     }
 
-    // line 27
+    // line 9
+    public function block_color($context, array $blocks = array())
+    {
+        $__internal_25273e102c7b3ffc1d320862b013eaa97feb6b2c3e31e0a790b8d757e5c2d6a9 = $this->env->getExtension("native_profiler");
+        $__internal_25273e102c7b3ffc1d320862b013eaa97feb6b2c3e31e0a790b8d757e5c2d6a9->enter($__internal_25273e102c7b3ffc1d320862b013eaa97feb6b2c3e31e0a790b8d757e5c2d6a9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "color"));
+
+        
+        $__internal_25273e102c7b3ffc1d320862b013eaa97feb6b2c3e31e0a790b8d757e5c2d6a9->leave($__internal_25273e102c7b3ffc1d320862b013eaa97feb6b2c3e31e0a790b8d757e5c2d6a9_prof);
+
+    }
+
+    // line 29
     public function block_fos_user_content($context, array $blocks = array())
     {
-        $__internal_058de83666c85a46d521f116233f1e951449378ec60087993da61b48486d3702 = $this->env->getExtension("native_profiler");
-        $__internal_058de83666c85a46d521f116233f1e951449378ec60087993da61b48486d3702->enter($__internal_058de83666c85a46d521f116233f1e951449378ec60087993da61b48486d3702_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "fos_user_content"));
+        $__internal_dc0cf69e2397c4de351a6e564e1432de7d31e8ed8e2623373da18ac2a79e6e1f = $this->env->getExtension("native_profiler");
+        $__internal_dc0cf69e2397c4de351a6e564e1432de7d31e8ed8e2623373da18ac2a79e6e1f->enter($__internal_dc0cf69e2397c4de351a6e564e1432de7d31e8ed8e2623373da18ac2a79e6e1f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "fos_user_content"));
 
-        // line 28
+        // line 30
         echo "            ";
         
-        $__internal_058de83666c85a46d521f116233f1e951449378ec60087993da61b48486d3702->leave($__internal_058de83666c85a46d521f116233f1e951449378ec60087993da61b48486d3702_prof);
+        $__internal_dc0cf69e2397c4de351a6e564e1432de7d31e8ed8e2623373da18ac2a79e6e1f->leave($__internal_dc0cf69e2397c4de351a6e564e1432de7d31e8ed8e2623373da18ac2a79e6e1f_prof);
 
     }
 
@@ -127,15 +156,18 @@ class __TwigTemplate_3a9669d742c627cbfcf6d6e03f14d7fab6faa82773174663b33cad8198a
 
     public function getDebugInfo()
     {
-        return array (  112 => 28,  106 => 27,  96 => 29,  94 => 27,  90 => 25,  84 => 24,  75 => 21,  70 => 20,  65 => 19,  61 => 18,  57 => 16,  49 => 14,  43 => 11,  39 => 10,  34 => 9,  32 => 8,  23 => 1,);
+        return array (  141 => 30,  135 => 29,  124 => 9,  111 => 35,  105 => 31,  103 => 29,  100 => 28,  94 => 27,  85 => 24,  80 => 23,  75 => 22,  71 => 21,  67 => 19,  59 => 17,  53 => 14,  49 => 13,  44 => 12,  42 => 11,  37 => 9,  32 => 7,  24 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
 /* <html>*/
 /*     <head>*/
 /*         <meta charset="UTF-8" />*/
+/*         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">*/
+/*         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">*/
+/*         <link rel="stylesheet" href="{{ asset('css/style.css') }}">*/
 /*     </head>*/
-/*     <body>*/
+/*     <body {% block color %}{% endblock %}>*/
 /*         <div>*/
 /*             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}*/
 /*                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |*/
@@ -154,11 +186,16 @@ class __TwigTemplate_3a9669d742c627cbfcf6d6e03f14d7fab6faa82773174663b33cad8198a
 /*                 </div>*/
 /*             {% endfor %}*/
 /*         {% endfor %}*/
-/* */
 /*         <div>*/
 /*             {% block fos_user_content %}*/
 /*             {% endblock fos_user_content %}*/
 /*         </div>*/
+/*         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>*/
+/*         <!-- Compiled and minified JavaScript -->*/
+/*         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>*/
+/*         <script src="{{ asset('js/app.js') }}" ></script>*/
+/*         <script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBCMCi-BsZloG-raKi9YbuMbAicd84VfDE&callback=initMap">*/
+/*         </script>*/
 /*     </body>*/
 /* </html>*/
 /* */
