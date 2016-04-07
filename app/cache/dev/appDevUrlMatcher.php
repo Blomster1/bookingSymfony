@@ -175,6 +175,90 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/tache')) {
+            // tache_index
+            if (rtrim($pathinfo, '/') === '/tache') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_tache_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'tache_index');
+                }
+
+                return array (  '_controller' => 'CoreBundle\\Controller\\TacheController::indexAction',  '_route' => 'tache_index',);
+            }
+            not_tache_index:
+
+            // tache_show
+            if (preg_match('#^/tache/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_tache_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tache_show')), array (  '_controller' => 'CoreBundle\\Controller\\TacheController::showAction',));
+            }
+            not_tache_show:
+
+            // tache_new
+            if ($pathinfo === '/tache/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_tache_new;
+                }
+
+                return array (  '_controller' => 'CoreBundle\\Controller\\TacheController::newAction',  '_route' => 'tache_new',);
+            }
+            not_tache_new:
+
+            // tache_edit
+            if (preg_match('#^/tache/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_tache_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tache_edit')), array (  '_controller' => 'CoreBundle\\Controller\\TacheController::editAction',));
+            }
+            not_tache_edit:
+
+            // tache_fait
+            if (preg_match('#^/tache/(?P<id>[^/]++)/fait$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_tache_fait;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tache_fait')), array (  '_controller' => 'CoreBundle\\Controller\\TacheController::faitAction',));
+            }
+            not_tache_fait:
+
+            // tache_nonFait
+            if (preg_match('#^/tache/(?P<id>[^/]++)/nonFait$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_tache_nonFait;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tache_nonFait')), array (  '_controller' => 'CoreBundle\\Controller\\TacheController::nonFaitAction',));
+            }
+            not_tache_nonFait:
+
+            // tache_delete
+            if (preg_match('#^/tache/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_tache_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tache_delete')), array (  '_controller' => 'CoreBundle::delete',));
+            }
+            not_tache_delete:
+
+        }
+
         // core_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

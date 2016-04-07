@@ -15,8 +15,8 @@ class __TwigTemplate_1ab510386a82c2ea895fee49454a356065b0b51d9df63dadd7ebf3c40c4
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a19dc885e092f0327381cc89cab42b7ccb28d21eeffcac05ab14af5823878ed9 = $this->env->getExtension("native_profiler");
-        $__internal_a19dc885e092f0327381cc89cab42b7ccb28d21eeffcac05ab14af5823878ed9->enter($__internal_a19dc885e092f0327381cc89cab42b7ccb28d21eeffcac05ab14af5823878ed9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "contact/new.html.twig"));
+        $__internal_178e50c396e313f4ecec41919b9a165cfb781c4d0b7f493cc73ed573b7370e55 = $this->env->getExtension("native_profiler");
+        $__internal_178e50c396e313f4ecec41919b9a165cfb781c4d0b7f493cc73ed573b7370e55->enter($__internal_178e50c396e313f4ecec41919b9a165cfb781c4d0b7f493cc73ed573b7370e55_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "contact/new.html.twig"));
 
         // line 1
         echo "
@@ -30,24 +30,17 @@ class __TwigTemplate_1ab510386a82c2ea895fee49454a356065b0b51d9df63dadd7ebf3c40c4
         // line 5
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
         echo "
-        <input type=\"submit\" value=\"Create\" />
+    <div class=\"modal-footer\">
+        <a href=\"#!\" class=\" modal-action waves-effect waves-green btn-flat\"><input type=\"submit\" value=\"Create\" /></a>
+    </div>
     ";
-        // line 7
+        // line 9
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
-    <ul>
-        <li>
-            <a href=\"";
-        // line 11
-        echo $this->env->getExtension('routing')->getPath("contact_index");
-        echo "\">Back to the list</a>
-        </li>
-    </ul>
-
 ";
         
-        $__internal_a19dc885e092f0327381cc89cab42b7ccb28d21eeffcac05ab14af5823878ed9->leave($__internal_a19dc885e092f0327381cc89cab42b7ccb28d21eeffcac05ab14af5823878ed9_prof);
+        $__internal_178e50c396e313f4ecec41919b9a165cfb781c4d0b7f493cc73ed573b7370e55->leave($__internal_178e50c396e313f4ecec41919b9a165cfb781c4d0b7f493cc73ed573b7370e55_prof);
 
     }
 
@@ -63,7 +56,7 @@ class __TwigTemplate_1ab510386a82c2ea895fee49454a356065b0b51d9df63dadd7ebf3c40c4
 
     public function getDebugInfo()
     {
-        return array (  43 => 11,  36 => 7,  31 => 5,  27 => 4,  22 => 1,);
+        return array (  38 => 9,  31 => 5,  27 => 4,  22 => 1,);
     }
 }
 /* */
@@ -71,13 +64,9 @@ class __TwigTemplate_1ab510386a82c2ea895fee49454a356065b0b51d9df63dadd7ebf3c40c4
 /* */
 /*     {{ form_start(form) }}*/
 /*         {{ form_widget(form) }}*/
-/*         <input type="submit" value="Create" />*/
+/*     <div class="modal-footer">*/
+/*         <a href="#!" class=" modal-action waves-effect waves-green btn-flat"><input type="submit" value="Create" /></a>*/
+/*     </div>*/
 /*     {{ form_end(form) }}*/
-/* */
-/*     <ul>*/
-/*         <li>*/
-/*             <a href="{{ path('contact_index') }}">Back to the list</a>*/
-/*         </li>*/
-/*     </ul>*/
 /* */
 /* */

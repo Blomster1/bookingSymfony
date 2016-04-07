@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block content %}
-    <a onclick="getFormContact()" class="waves-effect waves-light btn modal-trigger" href="#modal1">Ajouter un contact</a>
-
+{% block body %}
     <h1>Contact list</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
                 <th>Email</th>
                 <th>Tel</th>
                 <th>Role</th>
@@ -23,6 +23,8 @@
         {% for contact in contacts %}
             <tr>
                 <td><a href="{{ path('contact_show', { 'id': contact.id }) }}">{{ contact.id }}</a></td>
+                <td>{{ contact.nom }}</td>
+                <td>{{ contact.prenom }}</td>
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.tel }}</td>
                 <td>{{ contact.role }}</td>
@@ -35,9 +37,6 @@
                         <li>
                             <a href="{{ path('contact_show', { 'id': contact.id }) }}">show</a>
                         </li>
-                        <li>
-                            <a href="{{ path('contact_edit', { 'id': contact.id }) }}">edit</a>
-                        </li>
                     </ul>
                 </td>
             </tr>
@@ -45,20 +44,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('contact_new') }}">Create a new entry</a>
-        </li>
-    </ul>
-
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-    </div>
+    
 {% endblock %}
-
-

@@ -1,0 +1,34 @@
+tache_index:
+    path:     /
+    defaults: { _controller: "CoreBundle:Tache:index" }
+    methods:  GET
+
+tache_show:
+    path:     /{id}/show
+    defaults: { _controller: "CoreBundle:Tache:show" }
+    methods:  GET
+
+tache_new:
+    path:     /new
+    defaults: { _controller: "CoreBundle:Tache:new" }
+    methods:  [GET, POST]
+
+tache_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CoreBundle:Tache:edit" }
+    methods:  [GET, POST]
+
+tache_fait:
+    path:     /{id}/fait
+    defaults: { _controller: "CoreBundle:Tache:fait" }
+    methods:  [GET, POST]
+
+tache_nonFait:
+    path:     /{id}/nonFait
+    defaults: { _controller: "CoreBundle:Tache:nonFait" }
+    methods:  [GET, POST]
+
+tache_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CoreBundle::delete" }
+    methods:  DELETE

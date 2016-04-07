@@ -2,7 +2,7 @@
 
 {% block content %}
     <a class="btn-floating btn-large waves-effect waves-light red modal-trigger add" onclick="getFormContact()" href="#modal1"><i class="material-icons">add</i></a>
-    <nav class="red lighten-1 horizontal-nav">
+    <nav class="red darken-3 horizontal-nav">
         <div class="nav-wrapper">
             <a href="#!">Contacts</a>
             <ul class="right hide-on-med-and-down">
@@ -23,11 +23,10 @@
                                     <img src="../images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
                                 </div>
                                 <div class="col s9">
-                                    <strong>{{ contact.email }}</strong>
-                                    <small>{{ contact.role }}</small>
+                                    <p><strong>{{ contact.nom }}</strong> {{ contact.prenom }} <small>- {{ contact.role }}</small></p>
                                 </div>
                                 <div class="col s1">
-                                    <a onclick="getInfoContact({{ contact.id }})"><i class="material-icons">remove_red_eye</i></a>
+                                    <a href="#" onclick="getInfoContact({{ contact.id }})"><i class="material-icons">remove_red_eye</i></a>
                                     <a href="{{ path('contact_edit', { 'id': contact.id }) }}"><i class="material-icons">mode_edit</i></a>
                                 </div>
                             </div>
@@ -36,11 +35,9 @@
                 {% endfor %}
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
-                <div class="modal-content">
+                <div class="modal-content new-form">
                 </div>
-                <div class="modal-footer">
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                </div>
+
             </div>
         </div>
         <div class="col m8 no-padding no-margin" id="contact-view">

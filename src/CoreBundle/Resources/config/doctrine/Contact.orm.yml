@@ -9,6 +9,12 @@ CoreBundle\Entity\Contact:
             generator:
                 strategy: AUTO
     fields:
+        nom:
+            type: string
+            lenght: 255
+        prenom:
+            type: string
+            lenght: 255
         email:
             type: string
             length: 255

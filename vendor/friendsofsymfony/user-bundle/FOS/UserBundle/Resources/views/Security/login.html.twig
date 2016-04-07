@@ -5,7 +5,7 @@
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
 <div class="row">
-    <div id="form-login" class="col m2 offset-m5 z-depth-3 valign white">
+    <div id="form-login" class="col m4 offset-m4 z-depth-3 valign white">
         <h1 class="center-align">Arters booking web app</h1>
         <form action="{{ path("fos_user_security_check") }}" method="post">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />

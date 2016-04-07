@@ -16,6 +16,8 @@ class ContactType extends AbstractType
     {
         $builder
             ->setAction('/contact/new')
+            ->add('nom')
+            ->add('prenom')
             ->add('email')
             ->add('tel')
             ->add('role')
